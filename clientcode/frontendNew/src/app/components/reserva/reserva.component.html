@@ -1,0 +1,249 @@
+<div class="row">
+    <div class="col-md-8">
+        <h5>
+            -----------------------------------------------------Coches----------------------------------------------------------------
+        </h5>
+        <table class="table table-striped">
+            
+            <thead>
+                
+                <tr>
+                    <th>
+                        Modelo
+                    </th>
+                    <th>
+                        Matricula
+                    </th>
+                    <th>
+                        Destino
+                    </th>
+                    <th>
+                        Fecha Inicio
+                    </th>
+                    <th>
+                        Fecha Fin
+                    </th>
+                    <th>
+                        Precio
+                    </th>
+                    <th>
+                        Disponible
+                        
+                    </th>
+                    <!-- <th >
+                        Acción
+                    </th> -->
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor = "let coche of cocheService.coches">
+                    <td>{{coche.modelo}}</td>
+                    <td>{{coche.matricula}}</td>
+                    <td>{{coche.destino}}</td>
+                    <td>{{coche.fechaIni}}</td>
+                    <td>{{coche.fechaFin}}</td>
+                    <td>{{coche.precio}}</td>
+                    <td>{{coche.disponible}}</td>
+                    <!-- <td ><button >Edit</button></td> -->
+                    <!-- <td *ngIf="Admin == false"><button (click)="editCoche(coche)" >Reservar</button></td> -->
+                    <!-- <td *ngIf="Admin == false"><button (click)="editCoche(coche)">Reservar</button></td> -->
+                    <!-- <td><button class="btn btn-danger" (click)="deleteCoche(coche._id)"> Borrar</button></td> -->
+                    
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card-body">
+        <form #reservasForm="ngForm" (ngSubmit)="addReserva(reservasForm)"> 
+            <h1>Formulario</h1>
+            <input type="hidden" name="_id" [(ngModel)]="reservaService.selectedReserva._id">
+            <div class="form-group">
+                <label>Email Usuario</label>
+                <input readonly type="text" name="emailUser" class="form-control"  placeholder="{{User}}" [(ngModel)]="reservaService.selectedReserva.emailUser"> 
+            </div>
+
+            <div class="form-group">
+                <label>Nombre Modelo</label>
+                <input type="text" name="modeloCoche" class="form-control" placeholder="Introduce el nombre del modelo" [(ngModel)]="reservaService.selectedReserva.modeloCoche"> 
+            </div>
+
+            <div class="form-group">
+                <label>Matricula</label>
+                <input type="text" name="matricula" class="form-control" placeholder="Introduce la matricula" [(ngModel)]="reservaService.selectedReserva.matricula"> 
+            </div>
+
+
+            <div class="form-group">
+                <label>Número Asiento</label>
+                <input type="text" name="asientoAvion" class="form-control" placeholder="Introduce el número del asiento" [(ngModel)]="reservaService.selectedReserva.asientoAvion"> 
+            </div>
+
+            <div class="form-group">
+                <label>Destino</label>
+                <input type="text" name="desAvi" class="form-control" placeholder="Introduce el Destino" [(ngModel)]="reservaService.selectedReserva.desAvi"> 
+            </div>
+
+            <div class="form-group">
+                <label>Número Habitación</label>
+                <input type="text" name="habitacionHotel" class="form-control" placeholder="Introduce el número de Habitación" [(ngModel)]="reservaService.selectedReserva.habitacionHotel"> 
+            </div>
+
+            <div class="form-group">
+                <label>Nombre Hotel</label>
+                <input type="text" name="nombreHotel" class="form-control" placeholder="Introduce el nombre del Hotel" [(ngModel)]="reservaService.selectedReserva.nombreHotel"> 
+            </div>
+
+            <div class="form-group">
+                <button>Save</button>
+            </div>
+        </form>
+    </div>
+ </div>
+</div>
+
+<div class="col-md-8">
+    <h5>
+        -----------------------------------------------------Aviones----------------------------------------------------------------
+    </h5>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Asiento
+                </th>
+                <th>
+                    Destino
+                </th>
+                <th>
+                    Fecha Inicio
+                </th>
+                <th>
+                    Fecha Fin
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Disponible
+                </th>
+                <!-- <th >
+                    Acción
+                </th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let avion of avionService.aviones">
+                <td>{{avion.asiento}}</td>
+                <td>{{avion.destino}}</td>
+                <td>{{avion.fechaIni}}</td>
+                <td>{{avion.fechaFin}}</td>
+                <td>{{avion.precio}}</td>
+                <td>{{avion.disponible}}</td>
+                <!-- <td *ngIf="Admin == true"><button (click)="editAvion(avion)">Edit</button></td>
+                <td *ngIf="Admin == false"><button (click)="editAvion(avion)">Reservar</button></td> -->
+                <!-- <td><button class="btn btn-danger" (click)="deleteAvion(avion._id)"> Borrar</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-8">
+    <h5>
+        -----------------------------------------------------Hoteles----------------------------------------------------------------
+    </h5>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Direccion
+                </th>
+                <th>
+                    Destino
+                </th>
+                <th>
+                    Fecha Inicio
+                </th>
+                <th>
+                    Fecha Fin
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Disponible
+                </th>
+                <th>
+                    Num Habitación
+                </th>
+                <th>
+                    Categoría
+                </th>
+                <!-- <th>
+                    Acción
+                </th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let hotel of hotelService.hoteles">
+                <td>{{hotel.nombre}}</td>
+                <td>{{hotel.direccion}}</td>
+                <td>{{hotel.destino}}</td>
+                <td>{{hotel.fechaIni}}</td>
+                <td>{{hotel.fechaFin}}</td>
+                <td>{{hotel.precio}}</td>
+                <td>{{hotel.disponible}}</td>
+                <td>{{hotel.numHabitacion}}</td>
+                <td >{{hotel.categoria}}</td>
+                <!-- <td *ngIf="Admin == true"><button (click)="editHotel(hotel)">Edit</button></td>
+                <td *ngIf="Admin == false"><button (click)="editHotel(hotel)">Reservar</button></td> -->
+                <!-- <td><button class="btn btn-danger" (click)="deleteHotel(hotel._id)"> Borrar</button></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <div class="col-md-8">
+    <h5>
+        --------------------------Mis Reservas------------------------------
+    </h5>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Email Usuario
+                </th>
+                <th>
+                    Modelo Coche
+                </th>
+                <th>
+                    Asiento Avion
+                </th>
+                <th>
+                    Número habiración
+                </th>
+                
+                 <th>
+                    Acción
+                </th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let reserva of reservaService.reservas">
+                <td>{{reserva.nombreUser}}</td>
+                <td>{{reserva.modeloCoche}}</td>
+                <td>{{reserva.nombreHotel}}</td>
+                <td>{{reserva.asientoAvion}}</td>
+                <td *ngIf="Admin == true"><button (click)="editHotel(hotel)">Edit</button></td>
+                <td *ngIf="Admin == false"><button (click)="editHotel(hotel)">Reservar</button></td> -->
+                <!-- <td><button class="btn btn-danger" (click)="deleteHotel(hotel._id)"> Borrar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-striped">
+            
+            <thead>
+                
+                <tr>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Modelo
+                    </th>
+                    <th>
+                        Matricula
+                    </th>
+                    <th>
+                        Habitación Hotel
+                    </th>
+                    <th>
+                        Nombre Hotel
+                    </th>
+                    <th>
+                        Asiento Avión
+                    </th>
+                    <th>
+                        Destino Avion
+                    </th>
+                    
+                    <th >
+                        Acción
+                    </th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor = "let reserva of reservaService.reservas">
+                    <td>{{reserva.emailUser}}</td>
+                    <td>{{reserva.modeloCoche}}</td>
+                    <td>{{reserva.matricula}}</td>
+                    <td>{{reserva.habitacionHotel}}</td>
+                    <td>{{reserva.nombreHotel}}</td>
+                    <td>{{reserva.asientoAvion}}</td>
+                    <td>{{reserva.desAvi}}</td>
+                    <!-- <td ><button >Edit</button></td> -->
+                    <td><button (click)="BorraReserva(reserva)">Eliminar</button></td>
+                    <!-- <td *ngIf="Admin == false"><button (click)="editCoche(coche)">Reservar</button></td> -->
+                    <!-- <td><button class="btn btn-danger" (click)="deleteCoche(coche._id)"> Borrar</button></td> -->
+                    
+
+                </tr>
+            </tbody>
+        </table>
+    </div>

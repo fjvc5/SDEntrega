@@ -1,0 +1,271 @@
+
+<style>
+    /* *{box-sizing:border-box;} */
+
+
+    form{
+        width:300px;
+        padding:16px;
+        border-radius:10px;
+        margin:auto;
+        background-color:rgb(228, 111, 111);
+    }
+
+    form label{
+        width:100px;
+        font-weight:bold;
+        display:inline-block;
+    }
+
+
+    form input{
+        width:260px;
+        padding:3px 10px;
+        border:1px solid #f6f6f6;
+        border-radius:3px;
+        background-color:#f6f6f6;
+        margin:8px 0;
+        display:inline-block;
+    }
+
+    form input[type="submit"]{
+        width:100%;
+        padding:8px 16px;
+        margin-top:32px;
+        border:1px solid #000;
+        border-radius:5px;
+        display:block;
+        color:#fff;
+        background-color:#000;
+    } 
+
+    form input[type="submit"]:hover{
+        cursor:pointer;
+    }
+
+    textarea{
+        width:100%;
+        height:100px;
+        border:1px solid #f6f6f6;
+        border-radius:3px;
+        background-color:#f6f6f6;			
+        margin:8px 0;
+        /*resize: vertical | horizontal | none | both*/
+        resize:none;
+        display:block;
+    }
+
+
+
+    /* Estiliza la tabla */
+
+    body {
+        background-color: rgb(202, 187, 187);
+ 
+        font-family: Arial, sans-serif;
+    }
+
+
+    table{
+        width: 100%;
+        text-align: left;
+        background-color: rgb(241, 147, 147);
+    }
+
+    th, td{
+        padding: 20px;
+    }
+
+    thead{
+        background-color: bisque;
+        border-bottom: solid 5px #0F362D;
+        
+    }
+
+    tr:nth-child(even){
+        background-color: rgb(197, 147, 147);
+    }
+
+    tr:hover td{
+        background-color: #369681;
+        color: wheat
+    }
+
+
+</style>
+<body>
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- <div class="card"> -->
+            <div class="card-body">
+                
+                <form *ngIf="Admin == true" #hotelForm="ngForm" (ngSubmit)="addHotel(hotelForm)"> 
+                    <h1>Formulario</h1>
+                    <input type="hidden" name="_id" [(ngModel)]="hotelService.selectedHotel._id">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" class="form-control" placeholder="Introduce el Nombre" [(ngModel)]="hotelService.selectedHotel.nombre"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input type="text" name="direccion" class="form-control" placeholder="Introduce la Direccion" [(ngModel)]="hotelService.selectedHotel.direccion"> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Destino</label>
+                        <input type="text" name="destino" class="form-control" placeholder="Introduce el Destino" [(ngModel)]="hotelService.selectedHotel.destino"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Inicio</label>
+                        <input type="date" name="fechaIni" class="form-control" placeholder="Introduce la Fecha Inicio" [(ngModel)]="hotelService.selectedHotel.fechaIni">   
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input type="date" name="fechaFin" class="form-control" placeholder="Introduce la Fecha Fin" [(ngModel)]="hotelService.selectedHotel.fechaFin"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Precio</label>
+                        <input type="number" name="precio" class="form-control" placeholder="Introduce el Precio" [(ngModel)]="hotelService.selectedHotel.precio"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Disponibilidad</label><br>
+                        <input type="checkbox" name="disponible"  [(ngModel)]="hotelService.selectedHotel.disponible"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Número de Habitación</label>
+                        <input type="text" name="numHabitacion" class="form-control" placeholder="Introduce la NumHabitacion" [(ngModel)]="hotelService.selectedHotel.numHabitacion"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <input type="text" name="categoria" class="form-control" placeholder="Introduce la Categoria" [(ngModel)]="hotelService.selectedHotel.categoria"> 
+                    </div>
+
+                    <div class="form-group">
+                        <button>Save</button>
+                        <button (click)=resetForm(hotelForm)>Clean</button>
+                    </div>
+                </form>
+
+
+                <form *ngIf="Admin == false" #hotelForm="ngForm" (ngSubmit)="addHotel(hotelForm)"> 
+                    <h1>Reserva</h1>
+                    <input type="hidden" name="_id" [(ngModel)]="hotelService.selectedHotel._id">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input readonly type="text" name="nombre" class="form-control" placeholder="Introduce el Nombre" [(ngModel)]="hotelService.selectedHotel.nombre"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dirección</label>
+                        <input readonly type="text" name="direccion" class="form-control" placeholder="Introduce la Direccion" [(ngModel)]="hotelService.selectedHotel.direccion"> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Destino</label>
+                        <input readonly type="text" name="destino" class="form-control" placeholder="Introduce el Destino" [(ngModel)]="hotelService.selectedHotel.destino"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Inicio</label>
+                        <input  readonly type="date" name="fechaIni" class="form-control" placeholder="Introduce la Fecha Inicio" [(ngModel)]="hotelService.selectedHotel.fechaIni">   
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input readonly type="date" name="fechaFin" class="form-control" placeholder="Introduce la Fecha Fin" [(ngModel)]="hotelService.selectedHotel.fechaFin"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Precio</label>
+                        <input readonly type="number" name="precio" class="form-control" placeholder="Introduce el Precio" [(ngModel)]="hotelService.selectedHotel.precio"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Disponibilidad</label><br>
+                        <input readonly type="checkbox" name="disponible"  [(ngModel)]="hotelService.selectedHotel.disponible"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Número de Habitación</label>
+                        <input readonly type="text" name="numHabitacion" class="form-control" placeholder="Introduce la NumHabitacion" [(ngModel)]="hotelService.selectedHotel.numHabitacion"> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <input readonly type="text" name="categoria" class="form-control" placeholder="Introduce la Categoria" [(ngModel)]="hotelService.selectedHotel.categoria"> 
+                    </div>
+
+                    <div class="form-group">
+                        <button (click)="MakeReserva(hotelForm)">Reservar</button>
+
+                        <button (click)=resetForm(hotelForm)>Clean</button>
+                    </div>
+                </form>
+
+            <!-- </div> -->
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Direccion
+                    </th>
+                    <th>
+                        Destino
+                    </th>
+                    <th>
+                        Fecha Inicio
+                    </th>
+                    <th>
+                        Fecha Fin
+                    </th>
+                    <th>
+                        Precio
+                    </th>
+                    <th>
+                        Disponible
+                    </th>
+                    <th>
+                        Num Habitación
+                    </th>
+                    <th>
+                        Categoría
+                    </th>
+                    <th>
+                        Acción
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let hotel of hotelService.hoteles">
+                    <td>{{hotel.nombre}}</td>
+                    <td>{{hotel.direccion}}</td>
+                    <td>{{hotel.destino}}</td>
+                    <td>{{hotel.fechaIni}}</td>
+                    <td>{{hotel.fechaFin}}</td>
+                    <td>{{hotel.precio}}</td>
+                    <td>{{hotel.disponible}}</td>
+                    <td>{{hotel.numHabitacion}}</td>
+                    <td >{{hotel.categoria}}</td>
+                    <td *ngIf="Admin == true"><button (click)="editHotel(hotel)">Edit</button></td>
+                    <td *ngIf="Admin == false"><button (click)="editHotel(hotel)">Reservar</button></td>
+                    <!-- <td><button class="btn btn-danger" (click)="deleteHotel(hotel._id)"> Borrar</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
