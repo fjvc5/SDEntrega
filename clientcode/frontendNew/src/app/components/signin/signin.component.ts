@@ -41,7 +41,7 @@ export class SigninComponent implements OnInit {
         }
         
         
-        window.location.assign("https://localhost:4200/")
+        window.location.assign("https://172.20.42.17:4200/")
       },  
       err=>console.error(err)
 

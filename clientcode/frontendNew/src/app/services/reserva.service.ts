@@ -11,9 +11,9 @@ import { Hotel } from 'src/app/models/hotel';
 })
 export class ReservaService {
 
-  URL_APIRE = 'https://localhost:3100/api/reservas'
+  // URL_APIRE = 'https://localhost:3100/api/reservas'
 
-  // URL_APIRE = 'https://172.20.42.17:3100/api/reservas'
+  URL_APIRE = 'https://172.20.42.14:3100/api/reservas'
 
   reservas: Reserva[];
   selectedReserva: Reserva;

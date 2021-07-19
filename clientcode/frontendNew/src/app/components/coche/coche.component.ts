@@ -155,6 +155,15 @@ export class CocheComponent implements OnInit {
               );
             }
           }
+           else{
+            alert("Necesita registrar su cuenta bancaria");
+            pagado = false;
+            this.cocheService.desReservado(res).subscribe( //Pone a false el avión
+              res => console.log(res),
+              err => console.log(err)
+            );
+            this.route.navigate(['/banco'])
+           }
           if (pagado == true) { //Hace la reserva
             this.cocheService.MakeReserva(res).subscribe(
               res => console.log(res),

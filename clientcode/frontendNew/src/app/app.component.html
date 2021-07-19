@@ -17,14 +17,14 @@
 
   <div class="container">
     <a  class="navbar-brand" href="#">MEAN AGENCIA</a>
-    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://localhost:4200/coche">Coche</a>
-    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://localhost:4200/avion">Avión</a>
-    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://localhost:4200/hotel">Hotel</a>
-    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://localhost:4200/reservas">Paquete</a>
-    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://localhost:4200/misReservas">Mis Reservas</a>
+    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://172.20.42.17:4200/coche">Coche</a>
+    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://172.20.42.17:4200/avion">Avión</a>
+    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://172.20.42.17:4200/hotel">Hotel</a>
+    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://172.20.42.17:4200/reservas">Paquete</a>
+    <a *ngIf = "logOut==1 || logOut==2" class="navbar-brand" href="https://172.20.42.17:4200/misReservas">Mis Reservas</a>
 a
-    <a *ngIf = "logOut==0" class="navbar-brand" href="https://localhost:4200/signup">Registrar</a>
-    <a *ngIf = "logOut==0"  class="navbar-brand" href="https://localhost:4200/signin">Login</a>
+    <a *ngIf = "logOut==0" class="navbar-brand" href="https://172.20.42.17:4200/signup">Registrar</a>
+    <a *ngIf = "logOut==0"  class="navbar-brand" href="https://172.20.42.17:4200/signin">Login</a>
 
 
     <form #signinForm="ngForm" (ngSubmit)="deleteSignin(signinForm)"> 

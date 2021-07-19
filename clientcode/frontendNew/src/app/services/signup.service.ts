@@ -6,12 +6,12 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class SignupService {
-  URLU_API = 'https://localhost:3100/api/auth/usuarios'
-  URLT_API = 'https://localhost:3100/api/auth/tokens'
+  // URLU_API = 'https://localhost:3100/api/auth/usuarios'
+  // URLT_API = 'https://localhost:3100/api/auth/tokens'
 
 
-  // URLU_API = 'https://172.20.42.17:3100/api/auth/usuarios'
-  // URLT_API = 'https://172.20.42.17:3100/api/auth/tokens'
+  URLU_API = 'https://172.20.42.14:3100/api/auth/usuarios'
+  URLT_API = 'https://172.20.42.14:3100/api/auth/tokens'
 
   signups: User[];
   selectedSignup: User;

@@ -9,8 +9,8 @@ import { Banco } from '../models/banco';
 export class BancoService {
 
 
-  URL_APIBA = 'https://localhost:3100/api/cuenta'
-  // URL_APIBA = 'https://172.20.42.17:3100/api/cuenta'
+  // URL_APIBA = 'https://localhost:3100/api/cuenta'
+  URL_APIBA = 'https://172.20.42.14:3100/api/cuenta'
 
   bancos: Banco[];
   selectedBanco: Banco;

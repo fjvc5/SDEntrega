@@ -129,6 +129,15 @@ export class HotelComponent implements OnInit {
               );
             }
           }
+          else{
+            alert("Necesita registrar su cuenta bancaria");
+            pagado = false;
+            this.hotelService.desReservado(res).subscribe( //Pone a false el avión
+              res => console.log(res),
+              err => console.log(err)
+            );
+            this.route.navigate(['/banco'])
+           }
           if (pagado == true) { //Hace la reserva
             this.hotelService.MakeReserva(res).subscribe(
               res => console.log(res),
